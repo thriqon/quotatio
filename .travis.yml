@@ -9,8 +9,7 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
   - bower install
 
-after_script:
-  - ember build --environment production
-
 after_success:
-  - if [ "x$TRAVIS_BRANCH" = "xmaster"]; then git subtree push --prefix=dist git@5apps.com:thriqon_quotatio.git master ; fi
+  - ember build --environment production
+  - echo "On branch $TRAVIS_BRANCH"
+  - if [ "x$TRAVIS_BRANCH" = "xmaster" ]; then git subtree push --prefix=dist git@5apps.com:thriqon_quotatio.git master ; fi
