@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quotatio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/quotatio.css">
+  </head>
+  <body>
+    <script>
+      window.QuotatioENV = {{ENV}};
+      window.EmberENV = window.QuotatioENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/quotatio.js"></script>
+    <script>
+      window.Quotatio = require('quotatio/app')['default'].create(QuotatioENV.APP);
+    </script>
+  </body>
+</html>
