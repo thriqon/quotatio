@@ -2,7 +2,10 @@
   "predef": {
     "document": true,
     "window": true,
-    "QuotatioENV": true
+    "QuotatioENV": true,
+    "Ember": true,
+    "DS":true,
+    "PouchDB":true
   },
   "browser" : true,
   "boss" : true,

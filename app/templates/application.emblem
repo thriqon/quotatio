@@ -1,0 +1,23 @@
+
+view 'foundationcall'
+	.contain-to-grid
+		nav.top-bar data-topbar="data-topbar"
+			ul.title-area
+				li.name: h1: link-to 'index'
+					| Quotat
+					sup io
+				li.toggle-topbar.menu-icon: a href="#": span Menu
+			section.top-bar-section
+				ul.right
+					li.has-form
+						doi-adder action='addDoi'
+					li
+						link-to "projects.new" class="button"
+							| New Project
+					if user.authenticated
+						li.has-dropdown
+							a href="#"
+								= user.current.first_name
+								= user.current.last_name
+							ul.dropdown: li: link-to 'index'	| Settings
+outlet

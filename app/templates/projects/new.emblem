@@ -1,0 +1,13 @@
+
+.row
+	h2 New Project
+
+	.small-12.large-12.columns
+		label
+			| Project Name
+			input type="text" placeholder="A meaningful something..." value=newProjectName
+	.large-8.small-0.columns
+	.small-6.large-2.columns
+		button click="cancel" class="secondary button expand" Cancel
+	.small-6.large-2.columns
+		button click="create" class="primary button expand" Create

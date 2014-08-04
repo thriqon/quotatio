@@ -37,6 +37,7 @@
     "findWithAssert",
     "wait",
     "DS",
+    "Ember",
     "keyEvent",
     "isolatedContainer",
     "startApp",

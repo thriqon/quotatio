@@ -27,5 +27,10 @@
     "express": "^4.1.1",
     "glob": "^3.2.9",
     "originate": "0.1.5"
+  },
+  "dependencies": {
+    "broccoli-ember-script": "^0.1.1",
+    "broccoli-emblem-compiler": "^0.3.16",
+    "broccoli-sass": "^0.2.1"
   }
 }

@@ -17,4 +17,10 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('vendor/foundation/js/foundation.js');
+app.import({
+  development: 'vendor/pouchdb/dist/pouchdb-nightly.js',
+  production: 'vendor/pouchdb/dist/pouchdb-nightly.min.js'
+});
+
 module.exports = app.toTree();

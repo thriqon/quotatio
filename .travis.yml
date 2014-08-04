@@ -1,0 +1,16 @@
+
+language: node_js
+nodejs:
+  - "0.10"
+
+before_install:
+  - npm install -g bower ember-cli
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - bower install
+
+after_script:
+  - ember build --environment production
+
+after_success:
+  - if [ "x$TRAVIS_BRANCH" = "xmaster"]; then git subtree push --prefix=dist git@5apps.com:thriqon_quotatio.git master ; fi
