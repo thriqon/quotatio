@@ -11,5 +11,5 @@ before_install:
 
 after_success:
   - ember build --environment production
-  - echo "On branch $TRAVIS_BRANCH"
-  - if [ "x$TRAVIS_BRANCH" = "xmaster" ]; then git subtree push --prefix=dist git@5apps.com:thriqon_quotatio.git master ; fi
+  - echo "On branch" $TRAVIS_BRANCH
+  - if [ "x"$TRAVIS_BRANCH = "xmaster" ]; then git subtree push --prefix=dist git@5apps.com:thriqon_quotatio.git master ; fi
