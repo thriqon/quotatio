@@ -13,6 +13,9 @@ after_success:
   - ember build --environment production
   - git config --global user.email "travis@travis-ci.org"
   - git config --global user.name "Travis CI"
+  - echo "Host 5apps.com" >> ~/.ssh/config
+  - echo "StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "UserKnownHostsFile=/dev/null" >> ~/.ssh/config
   - git add -f dist
   - git commit -m built_$TRAVIS_COMMIT
   - echo "On branch" $TRAVIS_BRANCH
