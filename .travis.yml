@@ -11,6 +11,8 @@ before_install:
 
 after_success:
   - ember build --environment production
+  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.name "Travis CI"
   - git add -f dist
   - git commit -m built_$TRAVIS_COMMIT
   - echo "On branch" $TRAVIS_BRANCH
