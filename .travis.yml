@@ -16,7 +16,11 @@ after_success:
   - echo "Host 5apps.com" >> ~/.ssh/config
   - echo "StrictHostKeyChecking no" >> ~/.ssh/config
   - echo "UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  - openssl aes-256-cbc -pass "pass:"$PASSCODE -in 5apps.key.enc -out ~/.ssh/id_rsa -d -a
   - git add -f dist
   - git commit -m built_$TRAVIS_COMMIT
   - echo "On branch" $TRAVIS_BRANCH
   - if [ "x"$TRAVIS_BRANCH = "xmaster" ]; then git subtree push --prefix=dist git@5apps.com:thriqon_quotatio.git master ; fi
+
+
+secure: "Im+ugi5jUZI/xCjL2JPkTE9FVma+FQcBC1h3znTo36tvmApK3O7fkqw2efYiatGNt/+5Hws2ch0/XrnlIWEtn34+uBH3lgJpzyPDJc/XLVsZ6lADMCqMhc6C6p1XlklPfcHCSWW5r6BfEA6B71g8b3oKdrpv5KPQqO+FFmIgnJg="
