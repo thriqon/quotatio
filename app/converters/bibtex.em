@@ -1,7 +1,9 @@
 
+
+
 mixin BibtexConverter
   asBibtex: ->
-    @TY
+    '@' + @TY + '{' + @id + ',\r\n'
 
   setFromBibtexString: (bibtex) ->
     bibtex
