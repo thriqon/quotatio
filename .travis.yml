@@ -24,4 +24,5 @@ after_success:
   - if [ "x"$TRAVIS_BRANCH = "xmaster" ]; then git subtree push --prefix=dist git@5apps.com:thriqon_quotatio.git master ; fi
 
 
-secure: "Im+ugi5jUZI/xCjL2JPkTE9FVma+FQcBC1h3znTo36tvmApK3O7fkqw2efYiatGNt/+5Hws2ch0/XrnlIWEtn34+uBH3lgJpzyPDJc/XLVsZ6lADMCqMhc6C6p1XlklPfcHCSWW5r6BfEA6B71g8b3oKdrpv5KPQqO+FFmIgnJg="
+secure: "MuNc5m2RFdJfl3EWy8+F5ddOpUlJF8f7mK2hqWvPSi/hxxo09H+mK4Um4iT0cnwOs7WNidr2mA8INfjOScEbsAdjzxYl1z0GO3sdDrWmNvf0egQdEf/Q05PmMr7Uv3+Jef0XdtqG7Rx7m4Tsv7InC7iwuWT6WbGDSPw+QXO04eI="
+
