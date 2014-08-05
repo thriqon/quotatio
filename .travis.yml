@@ -16,7 +16,7 @@ after_success:
   - echo "Host 5apps.com" >> ~/.ssh/config
   - echo "StrictHostKeyChecking no" >> ~/.ssh/config
   - echo "UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-  - openssl aes-256-cbc -pass "pass:"$PASSCODE -in 5apps.key.enc -out ~/.ssh/id_rsa -d -a
+  - openssl aes-256-cbc -pass env:PASSCODE -in 5apps.key.enc -out ~/.ssh/id_rsa -d -a
   - chmod 0600 ~/.ssh/id_rsa
   - git add -f dist
   - git commit -m built_$TRAVIS_COMMIT
