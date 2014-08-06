@@ -27,7 +27,7 @@ export default DS.Adapter.extend({
 	},
 
 	findAll: function (store, type) {
-		return this._promisedPouch('allDocs')({startKey: idOfType(type, ''), endKey: idOfType(type, '~'), include_docs: true})
+		return this._promisedPouch('allDocs')({startkey: idOfType(type, ''), endkey: idOfType(type, '~'), include_docs: true})
 			.then(function (results) {
 				return results.rows.mapBy('doc');
 			});

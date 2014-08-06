@@ -4,4 +4,8 @@
 		h4 Bibliotheca
 		ul
 			each publications
-				li= typeOfReference
+				li= id
+				h2= author
+				each tags
+					strong= key
+					em= value
