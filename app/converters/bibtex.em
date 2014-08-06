@@ -2,8 +2,9 @@
 
 
 mixin BibtexConverter
+  +volatile
   asBibtex: ->
-    '@' + @TY + '{' + @id + ',\r\n'
+    'a' + @TY
 
   setFromBibtexString: (bibtex) ->
     bibtex
