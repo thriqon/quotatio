@@ -1,36 +1,27 @@
 
-`/* jshint curly:false *//*jshint -W032*/`
+`/* jshint curly:false *//*jshint -W032*//*jshint unused:false*/`
 
-risTag = (key, value) ->
-  "#{key}  - #{value}\r\n"
 
-keys = [
-	'AB', 'AD',
-	'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8',
-]
+exportkeymap =
+  title: 'TI'
 
-keys = [
-  ['TY', 'typeOfReference', 'type'],
-  ['TI', 'title'],
-]
-
-lengthIsGreaterThanZero = (line) -> line.length > 0
-
-splitByRisTerminator = (line) -> line.split('  - ')
+importkeymap = {}
+Ember.keys(exportkeymap).forEach((key) -> importkeymap[exportkeymap[key]] = key)
 
 mixin RisConverter
   +computed tags.@each.key, tags.@each.value
   asRis: ->
     self = this
-    risTags = []
-    keys.forEach((keyAliases) ->
-      chosenAlias = keyAliases.find((alias) -> self.get(alias))
-      risTags.pushObject(risTag(keyAliases[0], self.get(chosenAlias))) if chosenAlias?)
+    risTags = Ember.A()
+    Ember.assert(@typeOfReference, 'TY not set')
+
+    risTags.pushObject risTag('TY', @typeOfReference)
+    risTags.pushObjects Ember.keys(exportkeymap).filter((key) -> self.get(key)).map((key) -> risTag(exportkeymap[key], self.get(key)))
     risTags.pushObject risTag('ER', '')
-    Ember.assert 'TY not set', (risTags.length != 0 && risTags[0].substr(0,2) == "TY")
     risTags.join ''
 
-  setFromRISString: (ris) ->
+  setFromRisString: (ris) ->
+    self = this
     Ember.assert 'RIS argument is mandatory', ris
     ris = ris.replace /\r\n/g, '\n'
 
@@ -38,9 +29,19 @@ mixin RisConverter
     ris.split('\n')
     .filter(lengthIsGreaterThanZero)
     .map(splitByRisTerminator)
-    .forEach (parts) => @set(parts[0], parts[1])
+    .map((parts) -> key: parts[0], value: parts[1])
+    .map((o) -> key: importkeymap[o.key], value: o.value)
+    .filterBy('key')
+    .forEach((o) -> self.set(o.key, o.value))
     Ember.endPropertyChanges()
 
     this
+
+
+risTag = (key, value) -> "#{key}  - #{value}\r\n"
+
+lengthIsGreaterThanZero = (line) -> line.length > 0
+
+splitByRisTerminator = (line) -> line.split('  - ')
 
 `export default RisConverter`

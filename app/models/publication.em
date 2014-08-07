@@ -6,11 +6,11 @@
 
 
 class PublicationModel extends DS.Model with RisConverter, BibtexConverter
-  tags: DS.hasMany('tag', polymorphic: true),
+  tags: DS.hasMany('tag', polymorphic: true)
+
+  findTagWithKey: (key) -> @tags.findBy('key', key)
 
   unknownProperty: (key) ->
-    tag = @tags.findBy('key', key)
-    if tag?
-      tag.value
+    @findTagWithKey(key)?.value
 
 `export default PublicationModel`
