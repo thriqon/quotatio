@@ -1,6 +1,6 @@
 
 div.collapse.row
 	div.large-8.small-9.columns
-		input type="text" placeholder="Add by DOI" value=doi
+		=input type="text" placeholder="Add by DOI" value=doi
 	div.large-4.small-3.columns
 		button click='add' class="alert button expand" Add DOI

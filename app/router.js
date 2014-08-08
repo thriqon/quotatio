@@ -7,7 +7,8 @@ var Router = Ember.Router.extend({
 Router.map(function() {
 	this.route('login');
 	this.route('signup');
-	this.route('add.doi', {path: '/bibliotheca/add/doi/:doi'});
+	this.resource('load.doi', {path: '/bibliotheca/doi/:doi'}, function () {});
+	this.resource('publication', {path: '/publication/:id'});
 	this.resource('bibliotheca', {}, function () {});
 
 	this.route('projects.new', {path: '/projects/new'});

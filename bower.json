@@ -17,5 +17,8 @@
   },
   "resolutions": {
     "jquery": ">= 2.1.0"
+  },
+  "devDependencies": {
+    "ic-ajax": "~2.0.1"
   }
 }

@@ -18,4 +18,11 @@ class PublicationSerializer extends DS.RESTSerializer
   extractArray: (store, type, arrayPayload) ->
     arrayPayload.map(this.extractSingle.bind(this, store, type))
 
+  serialize: (record) ->
+    json = {}
+    json._id = record.get('id')
+    json._rev = record.get('_rev')
+    record.get('tags').forEach((tag) -> json[tag.get('key')] = tag.get('value'))
+    return record
+
 `export default PublicationSerializer`

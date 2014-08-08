@@ -1,9 +1,8 @@
 
 export default Ember.Route.extend({
-	directAdderDoi: 'blah',
 	actions: {
 		addDoi: function (doi) {
-			this.transitionTo('add.doi', doi);
+			this.transitionTo('load.doi', doi);
 		}
 	}
 });

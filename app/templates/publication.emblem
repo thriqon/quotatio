@@ -1,0 +1,9 @@
+
+div.row
+  h1=title
+  table
+    tbody
+      each tags
+        tr
+          td=key
+          td=value

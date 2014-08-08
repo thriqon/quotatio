@@ -22,5 +22,19 @@ app.import({
   development: 'vendor/pouchdb/dist/pouchdb-nightly.js',
   production: 'vendor/pouchdb/dist/pouchdb-nightly.min.js'
 });
+app.import('vendor/ic-ajax/dist/named-amd/main.js', {
+  exports: {
+    'ic-ajax': [
+      'default',
+      'defineFixture',
+      'lookupFixture',
+      'raw',
+      'request',
+    ]
+  }
+});
+if (app.env !== "production") {
+  app.import('vendor/dxapi-fixtures.js');
+}
 
 module.exports = app.toTree();
